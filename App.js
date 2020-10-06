@@ -11,19 +11,47 @@ export default function App() {
           resizeMode={'contain'}
           source={require('./assets/film-refuge-logo.webp')} />
         <View style={styles.assetsRow}>
-          <Image style={styles.assetImage} source={require('./assets/8MM.png')} />
-          <Image style={styles.assetImage} source={require('./assets/CaliforniaLut.png')} />
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/8MM.png')} />
+            <Text style={styles.assetText}>8MM Film Mattes</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/CaliforniaLut.png')} />
+            <Text style={styles.assetText}>California LUT</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
         </View>
         <View style={styles.assetsRow}>
-          <Image style={styles.assetImage} source={require('./assets/FilmBurns.png')} />
-          <Image style={styles.assetImage} source={require('./assets/GrainPack.png')} />
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/FilmBurns.png')} />
+            <Text style={styles.assetText}>Film Burns</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/GrainPack.png')} />
+            <Text style={styles.assetText}>Grain Pack</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
         </View>
         <View style={styles.assetsRow}>
-          <Image style={styles.assetImage} source={require('./assets/TapeDamage.png')} />
-          <Image style={styles.assetImage} source={require('./assets/TextOverlays.png')} />
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/TapeDamage.png')} />
+            <Text style={styles.assetText}>Tape Damage</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/TextOverlays.png')} />
+            <Text style={styles.assetText}>Text Overlays</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
         </View>
-        <View style={[styles.assetsRow, styles.assetsRowLast]}>
-          <Image style={styles.assetImage} source={require('./assets/Viewfinder.png')} />
+        <View style={styles.assetsRow}>
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={require('./assets/TapeDamage.png')} />
+            <Text style={styles.assetText}>Viewfinder</Text>
+            <Text style={styles.assetText}>$10.00</Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -46,9 +74,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row'
   },
+  asset: {
+    width: 120,
+    margin: 20
+  },
   assetImage: {
     height: 180,
     width: 120,
-    margin: 20,
+    marginBottom: 5
+  },
+  assetText: {
+    fontWeight: 'bold'
   }
 });
