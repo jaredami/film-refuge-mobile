@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -8,8 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -20,15 +18,22 @@ export default function HomeScreen({ navigation }) {
           resizeMode={"contain"}
           source={require("../assets/film-refuge-logo.webp")}
         />
+
         <View style={styles.assetsRow}>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/8MM.png")}
-            />
-            <Text style={styles.assetText}>8MM Film Mattes</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
+          <TouchableHighlight
+            activeOpacity={0.6}
+            underlayColor="#DDDDDD"
+            onPress={() => navigation.navigate("Details")}
+          >
+            <View style={styles.asset}>
+              <Image
+                style={styles.assetImage}
+                source={require("../assets/8MM.png")}
+              />
+              <Text style={styles.assetText}>8MM Film Mattes</Text>
+              <Text style={styles.assetText}>$10.00</Text>
+            </View>
+          </TouchableHighlight>
           <View style={styles.asset}>
             <Image
               style={styles.assetImage}
@@ -38,6 +43,7 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.assetText}>$10.00</Text>
           </View>
         </View>
+
         <View style={styles.assetsRow}>
           <View style={styles.asset}>
             <Image
@@ -56,6 +62,7 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.assetText}>$10.00</Text>
           </View>
         </View>
+
         <View style={styles.assetsRow}>
           <View style={styles.asset}>
             <Image
@@ -74,6 +81,7 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.assetText}>$10.00</Text>
           </View>
         </View>
+
         <View style={styles.assetsRow}>
           <View style={styles.asset}>
             <Image
@@ -84,10 +92,6 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.assetText}>$10.00</Text>
           </View>
         </View>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate("Details")}
-        />
       </ScrollView>
     </SafeAreaView>
   );
