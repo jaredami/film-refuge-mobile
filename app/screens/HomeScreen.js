@@ -9,7 +9,72 @@ import {
 } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
 
+const assetRows = [
+  [
+    {
+      image: require("../assets/8MM.png"),
+      name: "8MM Film Mattes",
+      price: "$10.00",
+    },
+    {
+      image: require("../assets/CaliforniaLut.png"),
+      name: "California LUT",
+      price: "$10.00",
+    },
+  ],
+  [
+    {
+      image: require("../assets/FilmBurns.png"),
+      name: "Film Burns",
+      price: "$10.00",
+    },
+    {
+      image: require("../assets/GrainPack.png"),
+      name: "Grain Pack",
+      price: "$10.00",
+    },
+  ],
+  [
+    {
+      image: require("../assets/TapeDamage.png"),
+      name: "Tape Damage",
+      price: "$10.00",
+    },
+    {
+      image: require("../assets/TextOverlays.png"),
+      name: "Text Overlays",
+      price: "$10.00",
+    },
+  ],
+  [
+    {
+      image: require("../assets/Viewfinder.png"),
+      name: "Viewfinder",
+      price: "$10.00",
+    },
+  ],
+];
+
 export default function HomeScreen({ navigation }) {
+  const assets = assetRows.map((row, i) => (
+    <View style={styles.assetsRow} key={i}>
+      {row.map((asset, j) => (
+        <TouchableHighlight
+          activeOpacity={0.6}
+          underlayColor="#DDDDDD"
+          onPress={() => navigation.navigate("Details")}
+          key={j}
+        >
+          <View style={styles.asset}>
+            <Image style={styles.assetImage} source={asset.image} />
+            <Text style={styles.assetText}>{asset.name}</Text>
+            <Text style={styles.assetText}>{asset.price}</Text>
+          </View>
+        </TouchableHighlight>
+      ))}
+    </View>
+  ));
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -18,80 +83,7 @@ export default function HomeScreen({ navigation }) {
           resizeMode={"contain"}
           source={require("../assets/film-refuge-logo.webp")}
         />
-
-        <View style={styles.assetsRow}>
-          <TouchableHighlight
-            activeOpacity={0.6}
-            underlayColor="#DDDDDD"
-            onPress={() => navigation.navigate("Details")}
-          >
-            <View style={styles.asset}>
-              <Image
-                style={styles.assetImage}
-                source={require("../assets/8MM.png")}
-              />
-              <Text style={styles.assetText}>8MM Film Mattes</Text>
-              <Text style={styles.assetText}>$10.00</Text>
-            </View>
-          </TouchableHighlight>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/CaliforniaLut.png")}
-            />
-            <Text style={styles.assetText}>California LUT</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-        </View>
-
-        <View style={styles.assetsRow}>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/FilmBurns.png")}
-            />
-            <Text style={styles.assetText}>Film Burns</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/GrainPack.png")}
-            />
-            <Text style={styles.assetText}>Grain Pack</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-        </View>
-
-        <View style={styles.assetsRow}>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/TapeDamage.png")}
-            />
-            <Text style={styles.assetText}>Tape Damage</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/TextOverlays.png")}
-            />
-            <Text style={styles.assetText}>Text Overlays</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-        </View>
-
-        <View style={styles.assetsRow}>
-          <View style={styles.asset}>
-            <Image
-              style={styles.assetImage}
-              source={require("../assets/TapeDamage.png")}
-            />
-            <Text style={styles.assetText}>Viewfinder</Text>
-            <Text style={styles.assetText}>$10.00</Text>
-          </View>
-        </View>
+        {assets}
       </ScrollView>
     </SafeAreaView>
   );
