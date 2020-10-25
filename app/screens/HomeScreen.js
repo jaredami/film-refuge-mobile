@@ -62,7 +62,11 @@ export default function HomeScreen({ navigation }) {
         <TouchableHighlight
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
-          onPress={() => navigation.navigate("Details")}
+          onPress={() =>
+            navigation.navigate("Details", {
+              asset: asset,
+            })
+          }
           key={j}
         >
           <View style={styles.asset}>
